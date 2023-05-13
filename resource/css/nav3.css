@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    margin: 0, 40px;
+    position: sticky;
+    top: 0;
+    background: linear-gradient(to right, #6189D7, #7B3BCD);
+}
+.navtitle{
+    display: flex;
+    align-items: center;
+}
+.logo{
+    padding: 0 10px;
+    width: auto;
+    height: 60px;
+}
+.recap{
+    color:#ffff;
+    font-size: 25px;
+    font-weight: bold;
+    font-style: italic;
+}
+.widget{
+    margin: 0 10px;
+}

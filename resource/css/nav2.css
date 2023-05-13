@@ -1,0 +1,30 @@
+nav{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 40px;
+}
+.logo{
+    width: 60px;
+    height: auto;
+}
+.navlinks{
+    padding: 5px 11px;
+    border: 1px solid #eeeeee;
+    margin: 0 9px;
+    color: #eeeeee;
+    border-radius: 25px;
+    text-decoration: none;
+}
+.navlinks:hover{
+    background-color: #eeeeee;
+    color: navy;
+    transition: .3s;
+}
+.top{
+    padding: 12px 0;
+}
