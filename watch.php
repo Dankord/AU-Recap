@@ -26,7 +26,7 @@
             header('location: home.php');
         }
     } else {
-        // Display an error message if the parameters are missing
+        // Display an error message if parameter is missing
         header('location: home.php');
     }
 ?>
@@ -69,7 +69,6 @@
                         $thumb = $row['thumbnail'];
                         $id = $row['id'];
                     
-                        // Display the retrieved data
                         echo "
                             <a href='watch.php?strand=$strand&video_id=$id' class='column'>
                                 <img class='sidevid' src='$thumb'>

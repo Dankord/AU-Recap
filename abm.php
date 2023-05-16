@@ -39,7 +39,6 @@
         <div class="main-content">
         
         <?php
-            // Assuming you have established a database connection, you can proceed with the query
             $query = "SELECT id, title, description, thumbnail FROM abm";
             $result = mysqli_query($conn, $query);
         
@@ -66,7 +65,7 @@
                 // Free the result set
                 mysqli_free_result($result);
             } else {
-                // Display an error message if the query fails
+                // Display an error message if the result fails
                 echo "Error executing the query: " . mysqli_error($conn);
             }
 

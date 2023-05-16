@@ -3,33 +3,33 @@
 include('db.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Validate input data
+    // Validate
     $name = test_input($_POST["name"]);
     $email = test_input($_POST["email"]);
     $password = test_input($_POST["password"]);
     $confirm_password = test_input($_POST["confirm_password"]);
 
-    // Check if name, email, password, and confirm password are not empty
+    // if name, email, password, and confirm password are not empty
     if (empty($name) || empty($email) || empty($password) || empty($confirm_password)) {
         echo "All fields are required";
     } else {
-        // Check if name is valid
+        // if name is valid
         if (!preg_match("/^[a-zA-Z ]*$/", $name)) {
             echo "Invalid name format";
         } else {
-            // Check if email is valid
+            // if email is valid
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 echo "Invalid email format";
             } else {
-                // Check if password is valid
+                // if password is valid
                 if (strlen($password) < 8) {
                     echo "Password must be at least 8 characters long";
                 } else {
-                    // Check if confirm password matches password
+                    //if confirm password matches password
                     if ($password != $confirm_password) {
                         echo "Passwords do not match";
                     } else {
-                        // Hash the password
+                        // Hash the password, for safe security
                         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
                         // Insert new user into the user table with the hashed password
@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
                         }
 
-                        // Close database connection
+                        
                         mysqli_close($conn);
                     }
                 }
