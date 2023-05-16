@@ -21,7 +21,9 @@
         <img class="logo" src="resource/img/Arellano hi-res_0.png">
         <p class="recap">AU Recap</p>
         </div>
-        <img class="widget" src="resource/img/widget.svg">
+        <a href="controllers/LogoutController.php">
+            <img class="widget" src="resource/img/widget.svg">
+        </a>
    </nav>
    <div class="category">
         <img class="interest" src="resource/img/interest.svg">
@@ -39,7 +41,7 @@
         
         <?php
             // Assuming you have established a database connection, you can proceed with the query
-            $query = "SELECT title, description, thumbnail FROM humss";
+            $query = "SELECT id, title, description, thumbnail FROM humss";
             $result = mysqli_query($conn, $query);
         
             // Check if the query was successful
@@ -49,16 +51,16 @@
                     $title = $row['title'];
                     $description = $row['description'];
                     $thumbnail = $row['thumbnail'];
-        
+                    $id = $row['id'];
+                    
                     // Display the retrieved data
                     echo "
-                        <div class='column'>
+                        <a href='watch.php?strand=humss&video_id=$id' class='column'>
                             <img class='thumbnail' src='$thumbnail' alt='Thumbnail'>
                             <div class='title-container'>
                                 <p class='vidtitle'>$title</p>
                             </div>
-                        </div>
-
+                        </a>
                     ";
                 }
         

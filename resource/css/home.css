@@ -49,6 +49,8 @@
     flex-direction: column;
     background-color: rgb(216, 216, 216);
     border-radius: 20px;
+    text-decoration: none;
+    color: black;
 }
 .vidtitle{
     font-size: 19px;
