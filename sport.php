@@ -1,5 +1,5 @@
 <?php
-
+    include('controllers/db.php');
     session_start();
     if (!isset($_SESSION['id']))
         header('location: ../login.php');
@@ -34,5 +34,42 @@
             <a href="abm.php" class="category-button">ABM</a>
             <a href="#" class="category-button active">SPORTS</a>
         </div>
+        <div class="main-content">
+        
+        <?php
+            // Assuming you have established a database connection, you can proceed with the query
+            $query = "SELECT title, description, thumbnail FROM sports";
+            $result = mysqli_query($conn, $query);
+        
+            // Check if the query was successful
+            if ($result) {
+                // Loop through the result set
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $title = $row['title'];
+                    $description = $row['description'];
+                    $thumbnail = $row['thumbnail'];
+        
+                    // Display the retrieved data
+                    echo "
+                        <div class='column'>
+                            <img class='thumbnail' src='$thumbnail' alt='Thumbnail'>
+                            <div class='title-container'>
+                                <p class='vidtitle'>$title</p>
+                            </div>
+                        </div>
+
+                    ";
+                }
+        
+                // Free the result set
+                mysqli_free_result($result);
+            } else {
+                // Display an error message if the query fails
+                echo "Error executing the query: " . mysqli_error($conn);
+            }
+
+            mysqli_close($conn);
+        ?>
+    </div>
 </body>
 </html>
